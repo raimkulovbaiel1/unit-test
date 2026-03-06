@@ -1,0 +1,203 @@
+.cart {
+  padding: 60px 16px;
+  background: #fff;
+}
+
+.cart-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 40px;
+}
+
+/* ===== LEFT ===== */
+.cart-title {
+  font-size: 28px;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 60px 1fr 100px 90px 30px;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.cart-item-info h3 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.cart-item-info p {
+  font-size: 12px;
+  color: #777;
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-item-actions button { 
+  border-radius:30px;
+  width: 28px;
+  height: 28px; 
+  border: 1px solid #222222;
+  background: none;
+  cursor: pointer;
+}
+
+.cart-item-price {
+  font-size: 20px; 
+  font-family: roboto, sans-serif;
+  font-weight: 600;
+}
+
+.cart-item-remove {
+ border: 1px solid #222222;
+ border-radius: 20px;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+/* ===== RIGHT ===== */
+.cart-summary {
+  background: #fff;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  padding: 32px;
+  height: fit-content;
+}
+
+.summary-title {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.summary-price {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.summary-count {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 24px;
+}
+
+.checkout-btn {
+  width: 100%;
+  height: 48px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* ===== ADAPTIVE ===== */
+@media (max-width: 1024px) {
+  .cart-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-summary {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Контейнер — одна колонка */
+  .cart-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Карточка товара */
+  .cart-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 8px 16px;
+    padding-bottom: 20px;
+  }
+
+  /* Картинка */
+  .cart-item-img {
+    width: 80px;
+    height: 80px;
+    grid-row: span 3;
+  }
+
+  /* Инфо */
+  .cart-item-info h3 {
+    font-size: 14px;
+  }
+
+  .cart-item-info p {
+    font-size: 12px;
+  }
+
+  /* Счётчик */
+  .cart-item-actions {
+    justify-content: flex-start;
+  }
+
+  /* Цена — справа */
+  .cart-item-price {
+    position: absolute;
+    right: 0;
+    bottom: 16px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  /* Кнопка удаления */
+  .cart-item-remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 26px;
+    height: 26px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  /* Summary — как карточка снизу */
+  .cart-summary {
+    margin-top: 24px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  .summary-price {
+    font-size: 24px;
+  }
+
+  .checkout-btn {
+    height: 52px;
+    font-size: 14px;
+  }
+}
+

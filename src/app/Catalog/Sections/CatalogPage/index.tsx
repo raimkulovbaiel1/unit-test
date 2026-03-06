@@ -1,114 +1,141 @@
 "use client";
-
+import Link from "next/link";
+import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import "./style.css";
- 
-import img1 from "@/shared/assets/img/cataloV3/img1.png";
-import img2 from "@/shared/assets/img/cataloV3/img2.png"; 
-import img3 from "@/shared/assets/img/cataloV3/img1.png";
-import img4 from "@/shared/assets/img/cataloV3/img2.png"; 
-import img5 from "@/shared/assets/img/cataloV3/img1.png";
-import img6 from "@/shared/assets/img/cataloV3/img2.png";
- 
+
+
+export interface category {
+  key: string;
+  title: string;
+  groups?: {
+    items: any;
+    title: string;
+    item: string;
+  }[];
+}
+
+
+import { Product } from "@/entities/product/model/types";
+import { AddToCartButton } from "@/features/add-to-cart/ui/AddToCartButton";
 
 import LogoIcon from "@/shared/assets/icons/catalovV3/icons.svg";
 import TimeIcon from "@/shared/assets/icons/catalovV3/Time.svg";
-import DashboardIcon from "@/shared/assets/icons/catalovV3/darhboard.svg";
-import cart from "@/shared/assets/icons/catalovV3/cart.svg";  
+import cart from "@/shared/assets/icons/catalovV3/cart.svg";
+
+  function CatalogPage() {
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [openCategory, setOpenCategory] = useState<string | null>("bedroom");
+  const [categories, setcategories] = useState<category[]>([])
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams?.get('search') || '';
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch("http://localhost:3003/products");
+        const data = await res.json();
+        setAllProducts(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  // Фильтруем товары при изменении поискового запроса
+  useEffect(() => {
+    if (searchQuery.trim() === '') {
+      setFilteredProducts(allProducts);
+    } else {
+      const filtered = allProducts.filter(product =>
+        product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    }
+  }, [searchQuery, allProducts]);
 
 
-import { LogOutIcon } from "lucide-react";
-import { describe } from "node:test";
+  useEffect(() => {
+    fetch("http://localhost:3003/categories")
+      .then(res => res.json())
+      .then(setcategories);
+  }, []);
+  const toggleCategory = (key: string) => {
+    setOpenCategory(openCategory === key ? null : key);
+  };  
 
-
-const products = [
-  { id: 1, title: "ROUND BASKET", describe: "Плетеная джутовая корзина", price: "2 840 ₽", image: img1.src },
-  { id: 2, title: "LEATHER STOOL", describe: "Кожаный стул", price: "3 120 ₽", image: img2.src },
-  { id: 3, title: "UPHOLSTERED BOUCLÉ", describe: "Кресло для отдыха", price: "11 540 ₽", image: img3.src },
-  { id: 4, title: "ROUND BASKET", describe: "Плетеная джутовая корзина", price: "2 840 ₽", image: img4.src },
-  { id: 5, title: "LEATHER STOOL", describe: "Плетеная джутовая корзина", price: "3 120 ₽", image: img5.src },
-  { id: 6, title: "UPHOLSTERED BOUCLÉ", describe: "Плетеная джутовая корзина", price: "11 540 ₽", image: img6.src },
-];
-
-export default function CatalogPage() {
   return (
     <div className="catalog-layout">
 
       {/* SIDEBAR */}
       <aside className="sidebar">
-        <h3 className="sidebar-title">Каталог товаров</h3>
-
+        <h3 
+        data-testid="sidebar-title"
+        className="sidebar-title">Каталог товаров</h3>
         <ul className="sidebar-list">
-
-          <li className="sidebar-item active">
-            <span className="toggle">▾</span> Спальня
-
-            <ul className="sidebar-sublist tree">
-              <li className="sub-title">ПОСТЕЛЬНОЕ БЕЛЬЕ</li>
-              <li>Смотреть все</li>
-              <li className="active-link">Основное постельное белье</li>
-              <li>Пододеяльники</li>
-              <li>Наволочки</li>
-              <li>Плоские простыни</li>
-            </ul>
-
-            <ul className="sidebar-sublist">
-              <li className="sub-title">НАПОЛНИТЕЛИ И ПРОТЕКТОРЫ</li>
-              <li className="bold">БЕСПРИНАДЫ</li>
-              <li>КВИЛТЫ</li>
-              <li>БЛАНКЕТЫ</li>
-            </ul>
-
-            <ul className="sidebar-sublist">
-              <li className="bold">ПОДШИПНИКИ</li>
-              <li className="bold">МЕБЕЛЬ</li>
-              <li className="bold">РУГИ</li>
-              <li>ЗЕРКАЛА</li>
-              <li className="bold">ОСВЕЩЕНИЕ</li>
-            </ul>
-          </li>
-
-          <li className="sidebar-item">Одежда и обувь</li>
-          <li className="sidebar-item">Жилая комната</li>
-          <li className="sidebar-item">Столовая</li>
-          <li className="sidebar-item">Кухня</li>
-          <li className="sidebar-item">Ванная комната</li>
-          <li className="sidebar-item">Экстра</li>
-          <li className="sidebar-item">Ароматы для дома</li>
-          <li className="sidebar-item">Детская</li>
-          <li className="sidebar-item">Домашние животные</li>
-
+          {categories.map(cat => (
+            <li key={cat.key} className="sidebar-item">
+              <button 
+              data-testid={`category-button-${cat.key}`}
+                className="sidebar-btn"
+                onClick={() => toggleCategory(cat.key)}
+              >
+                {cat.title} 
+                
+              </button>
+              {openCategory === cat.key && cat.groups && (
+                <div className="sidebar-content">
+                  {cat.groups.map((group, i) => (
+                    <ul key={i} className="sidebar-sublist">
+                      <li className="sub-title">{group.title}</li>
+                      {group.items.map((item: boolean | Key | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined, index: number) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+              )}
+            </li>
+          ))}
         </ul>
       </aside>
 
       {/* CONTENT */}
-      <main className="catalog-content">
-      
+      <main 
+       data-testid="catalog-component"
+       className="catalog-content">
         {/* HEADER */}
-        <div className="catalog-header">
-          <h1>ВАННАЯ КОМНАТА</h1>
+        <div  
+         data-testid="catalog-header"
+         className="catalog-header">
+          <h1>
+            {searchQuery ? `Результаты поиска: "${searchQuery}"` : 'ВАННАЯ КОМНАТА'}
+          </h1>
 
-          <div className="catalog-sort"> 
+          <div className="catalog-sort">
             <img src={LogoIcon.src} alt="logo" />
-            <span>Сначала дешевые</span> 
-            <img src={TimeIcon.src}alt="taimer" />
-            <span>Добавлены позже</span> 
-            <img src={DashboardIcon.src} alt="pizda" />
+            <span>Сначала дешевые</span>
+            <img src={TimeIcon.src} alt="timer" />
+            <span>Добавлены позже</span>
           </div>
         </div>
 
         {/* PRODUCTS */}
-        <div className="products-griы">
-          {products.map((p) => (
-            <div key={p.id} className="product-card">
-              <img src={p.image} alt={p.title} /> 
-             
-              <h4>{p.title}</h4> 
-               <p className="product-description">{p.describe}</p>
-              <p className="price">{p.price}</p>
-              <button>  в корзину
-                <img src={cart.src} alt="cart" className="cart-icon" /> 
-                
-              </button>
+        <div className="products-grid" data-testid="products-grid">
+          {filteredProducts.map((p) => (
+            <div key={p.id} className="product-card" data-testid="product-card">
+              <Link href={`/product/${p.id}`}> 
+                <img src={typeof p.image === 'string' ? p.image : p.image.src} alt={String(p.title) || "product"} />
+                <h4>{p.title}</h4>
+                <p className="product-description">{p.description}</p>
+                <p className="price">{p.price}</p>
+              </Link>
+
+              <AddToCartButton product={p} />
             </div>
           ))}
         </div>
@@ -117,3 +144,5 @@ export default function CatalogPage() {
     </div>
   );
 }
+ 
+export default CatalogPage;

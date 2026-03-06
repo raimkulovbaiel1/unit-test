@@ -88,7 +88,7 @@ const toggleGroup = (label: string) => {
       {menu.map((col, index) => (
         <div key={index} className="menu-column">
           <h3>{col.title}</h3>
-
+              
           {col.items.map((item, i) => {
             // Если это просто строка
             if (typeof item === "string") {

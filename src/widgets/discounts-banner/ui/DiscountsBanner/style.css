@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+/* Внешняя секция */
+.discounts-banner {
+  width: 100%;
+  padding: 0;
+}
+
+.discounts-content {
+  width: 100%;
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+}
+
+.discounts-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.discounts-text-box {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 4px 60px;
+  text-align: center;
+  border-radius: 6px;
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.1);
+}
+
+.discounts-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 500;
+  color: #111;
+}
+
+.discounts-subtitle {
+  margin: 6px 0 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+.discounts-btn {
+  background: black;
+  color: white;
+  padding: 12px 26px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.discounts-btn:hover {
+  background: #333;
+}
+
+@media screen and (max-width: 768px) {
+ .discounts-text-box{ 
+  padding: 1px 40vh;
+ } 
+ .discounts-btn{ 
+  display: none;
+ } 
+ .discounts-subtitle{ 
+  font-size: 10px;
+ }
+}
+
+
+
+
+
+
+
+
+
+
+
+

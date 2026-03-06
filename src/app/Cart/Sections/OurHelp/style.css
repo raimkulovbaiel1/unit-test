@@ -1,0 +1,74 @@
+.our-help {
+  padding: 80px 16px;
+  background: #fff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+} 
+.content-text{  
+    font-family: "Ysabeau SC";
+    margin-bottom: 60px;
+} 
+.content-text h2 {
+  font-size: 41px;
+}
+.content-text p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* === 3 блока по горизонтали === */
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.help-card {
+  padding: 30px;
+  border: 1px solid #eee;
+  text-align: center;
+  background: #fff;
+
+  /* Анимация */
+  transition: 
+    transform 1.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* 🔥 При наведении */
+.help-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+
+
+.help-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.help-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+} 
+.link { 
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 20px;
+    background-size: contain;
+}
+
+/* === Адаптив === */
+@media (max-width: 768px) {
+  .help-grid {
+    grid-template-columns: 1fr;
+  } 
+.content-text h2 {
+  font-size: 42px;}
+
+}

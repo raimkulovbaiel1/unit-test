@@ -1,0 +1,84 @@
+/* Внешняя секция */
+.new-arrival-banner {
+  width: 100%;
+  padding: 0;
+}
+
+/* Основной блок баннера */
+.content {
+  width: 100%;
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Картинка заполняет блок */
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Блок текста в центре */
+.text-box {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 4px 60px;
+  text-align: center;
+  border-radius: 6px;
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок */
+.title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 500;
+  color: #111;
+}
+
+/* Подзаголовок */
+.subtitle {
+  margin: 6px 0 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Кнопка */
+.btn {
+  background: black;
+  color: white;
+  padding: 12px 26px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #333;
+} 
+
+@media (max-width: 768px) {
+ .text-box {
+  display: none;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

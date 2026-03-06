@@ -1,0 +1,160 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "ROUND BASKET",
+      "description": "Плетеная джутовая корзина",
+      "price": "2 840 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2450/part245096/245096303/images/big/1.webp",
+      "category": "bathroom"
+    },
+    {
+      "id": 2,
+      "title": "LEATHER STOOL",
+      "description": "Кожаный стул",
+      "price": "3 120 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    },
+    {
+      "id": 3,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    }, 
+    {
+      "id": 4,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    }, 
+    {
+      "id": 5,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    }, 
+    {
+      "id": 6,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    },
+    {
+      "id": 7,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    } ,
+    {
+      "id": 8,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    } ,
+    {
+      "id": 9,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    }, 
+    {
+      "id": 10,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    }, 
+    {
+      "id": 11,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    }, 
+    {
+      "id": 12,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    },
+    {
+      "id": 13,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    }, 
+    {
+      "id": 14,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/1.webp",
+      "category": "bathroom"
+    }, 
+    {
+      "id": 15,
+      "title": "UPHOLSTERED BOUCLÉ",
+      "description": "Кресло для отдыха",
+      "price": "11 540 ₽",
+      "image": "https://basket-16.wbcontent.net/vol2445/part244534/244534563/images/big/2.webp",
+      "category": "bathroom"
+    }
+    
+  ], 
+  "categories": [
+    {
+      "key": "bedroom",
+      "title": "Спальня",
+      "groups": [
+        {
+          "title": "ПОСТЕЛЬНОЕ БЕЛЬЕ",
+          "items": [
+            "Смотреть все",
+            "Основное постельное белье",
+            "Пододеяльники",
+            "Наволочки",
+            "Плоские простыни"
+          ]
+        },
+        {
+          "title": "НАПОЛНИТЕЛИ И ПРОТЕКТОРЫ",
+          "items": [
+            "БЕСПРИНАДЫ",
+            "КВИЛТЫ",
+            "БЛАНКЕТЫ"
+          ]
+        }
+      ]
+    },
+    { "key": "clothes", "title": "Одежда и обувь" },
+    { "key": "living", "title": "Жилая комната" },
+    { "key": "dining", "title": "Столовая" },
+    { "key": "kitchen", "title": "Кухня" },
+    { "key": "bathroom", "title": "Ванная комната" },
+    { "key": "extra", "title": "Экстра" },
+    { "key": "aroma", "title": "Ароматы для дома" },
+    { "key": "kids", "title": "Детская" },
+    { "key": "pets", "title": "Домашние животные" }
+  ]
+}

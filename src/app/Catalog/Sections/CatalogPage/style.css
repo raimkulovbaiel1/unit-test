@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+/* Layout */
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* SIDEBAR */
+.sidebar {
+  font-size: 14px;
+}
+
+.sidebar-title {
+  font-size: 13px;
+  margin-bottom: 15px;
+  color: #777;
+  text-transform: uppercase;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-item {
+  margin-bottom: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.sidebar-item.active {
+  font-weight: 600;
+}
+
+.toggle {
+  margin-right: 6px;
+  font-size: 12px;
+}
+/* ===== TREE MENU ===== */
+
+.sidebar-sublist.tree {
+  position: relative;
+  margin-left: 18px;
+  padding-left: 18px;
+}
+
+/* ВЕРТИКАЛЬНАЯ ЛИНИЯ */
+.sidebar-sublist.tree::before {
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 22px;
+  bottom: 6px;
+  width: 1px;
+  background: #000;
+}
+
+/* ===== SUB TITLE ===== */
+
+.sidebar-sublist.tree .sub-title {
+  position: relative;
+  padding-left: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+/* квадрат */
+.sidebar-sublist.tree .sub-title::before {
+  content: "▾";
+  position: absolute;
+  left: -2px;
+  top: 4px;
+  width: 8px;
+  height: 8px;
+ 
+}
+
+/* ===== ITEMS ===== */
+
+.sidebar-sublist.tree li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+/* точка */
+.sidebar-sublist.tree li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 7px;
+  width: 4px;
+  height: 4px;
+  
+  border-radius: 50%;
+}
+
+/* ===== ACTIVE LINK ===== */
+
+.sidebar-sublist.tree .active-link {
+  color: #000;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+
+
+
+
+
+.sidebar-sublist li {
+  padding: 4px 0;
+  color: #666;
+}
+
+.sub-title {
+  font-size: 12px;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.bold {
+  font-weight: 600;
+  color: #000;
+}
+
+.active-link {
+  text-decoration: underline;
+  color: #000;
+}
+
+/* Content */
+.catalog-content {
+  width: 100%;
+}
+
+/* Header */
+.catalog-header {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.catalog-header h1 {
+  font-size: 28px;
+  font-weight: 200;
+  letter-spacing: 5px;
+}
+
+.catalog-sort {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Products */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+
+.product-card h4 {
+  margin: 10px 0 4px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.product-description {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #00000080;
+}
+
+.product-card .price {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.product-card button {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 1px;
+  cursor: pointer;
+}
+
+/* Стили для кнопки, чтобы ее содержимое (текст и иконка) выровнять по горизонтали */
+.product-card button {
+  /* ... другие стили кнопки ... */
+
+  display: flex; /* Активируем Flexbox */
+  align-items: center; /* Выравниваем элементы вертикально по центру */
+  justify-content: center; /* (Опционально) Выравниваем элементы горизонтально по центру кнопки */
+  padding: 10px 15px; /* Пример отступов */
+
+  /* Убедитесь, что ширина и высота не фиксированы жестко, если вы хотите,
+     чтобы они подстраивались под содержимое, или установите нужные вам */
+}
+
+/* Стили для иконки */
+.cart-icon {
+  width: 20px; /* Уменьшаем размер иконки, 40vh - это очень много! */
+  height: 20px;
+  margin-left: 10px; /* Добавляем небольшой отступ слева от иконки */
+  /* Уберите !important, если это возможно, для лучшей поддержки */
+}
+
+/* Если вам нужно, чтобы текст не сдвигался */
+.product-card button span {
+  white-space: nowrap; /* Предотвращает перенос текста на новую строку */
+}
+ 
+
+.sidebar-btn {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+/* стрелка */
+.arrow {
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid #000;
+  border-bottom: 1.5px solid #000;
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease;
+}
+
+/* раскрыто */
+.arrow.open {
+  transform: rotate(45deg);
+}
+
+.sidebar-btn {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrow {
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid #000;
+  border-bottom: 1.5px solid #000;
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease;
+}
+
+.arrow.open {
+  transform: rotate(45deg);
+}
+
+
+
+/* Adaptive */
+@media (max-width: 1024px) {
+  .catalog-layout {
+    grid-template-columns: 220px 2fr;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-layout {
+    grid-template-columns: 2fr;
+  }
+
+  .catalog-sidebar {
+    border-right: none;
+    border-bottom: 10px solid #eee;
+    padding-bottom: 20px;
+  }
+
+  .catalog-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .product-card img:not(.cart-icon) {
+    height: 180px;
+  }
+  .product-card h4 {
+    font-size: 14px;
+  }
+
+  .product-description {
+    font-size: 12px;
+  }
+
+  .product-card .price {
+    font-size: 14px;
+  } 
+  .product-card button {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .cart-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .sidebar {
+    display: none; /* Скрываем sidebar на мобильных */
+  }
+}

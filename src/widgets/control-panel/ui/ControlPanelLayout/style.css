@@ -1,0 +1,62 @@
+.orders {
+  padding: 10px 16px;
+  background: #fff;
+  font-family: "Ysabeau SC";
+}
+
+.orders-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+}
+.link {
+  font-size: 12px;
+  color: #00000099;
+  margin-left: 59px;
+  margin-bottom: 20px;
+}
+.link a {
+  /* или .link Link, если используете styled-components */
+  display: flex;
+  align-items: center; /* вертикальное выравнивание по центру */
+  gap: 10px; /* расстояние между изображением и текстом */
+  text-decoration: none; /* убираем подчёркивание у ссылки, если нужно */
+  color: inherit; /* наследуем цвет текста */
+}
+
+.link img {
+  width: 20px; /* задайте нужный размер иконки */
+  height: 20px;
+}
+
+/* ===== SIDEBAR ===== */
+.orders-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.orders-sidebar li {
+  padding: 6px 0;
+  cursor: pointer;
+  color: #555;
+}
+
+.orders-sidebar li.active {
+  font-weight: 600;
+  color: #000;
+}
+@media (max-width: 768px) {
+  .orders-container {
+    grid-template-columns: 1fr;
+  } 
+ 
+  .orders-sidebar {
+   display: none; 
+
+  } 
+  .link { 
+    display: none;
+  }
+}

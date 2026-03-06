@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+}
+
+.menu-column {
+  border-left: 1px solid #e5e5e5;
+  padding-left: 25px;
+}
+
+.menu-column:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.menu-column h3 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.menu-item {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  color: #000;
+}
+
+/* ===== TREE LINE ===== */
+
+.menu-group {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* вертикальная линия */
+.menu-group::before {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 22px;
+  bottom: 0;
+  width: 1px;
+  background: #000;
+}
+
+/* ===== TITLE ===== */
+
+.menu-group-title {
+  position: relative;
+  padding-left: 18px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px; 
+  user-select: none; /* чтобы текст не выделялся при клике */
+}
+
+/* квадрат у заголовка */
+.menu-group-title::before {
+content: "▸";
+  position: absolute;
+  left: -2px;
+  width: 8px;
+  height: 8px;
+  
+}
+
+/* ===== SUB ITEMS ===== */
+
+.menu-subitem {
+  position: relative;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+/* точка у подпункта */
+.menu-subitem::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 7px;
+  width: 4px;
+  height: 4px;
+  background: #000;
+  border-radius: 50%;
+}
+
+/* hover */
+.menu-subitem:hover {
+  color: #000;
+  text-decoration: underline;
+} 
+
+/* ===================== */
+/* 📱 АДАПТИВКА */
+/* ===================== */
+
+@media (max-width: 1024px) {
+  .menu-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-wrapper {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .menu-column {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .menu-column h3 {
+    font-size: 16px;
+  }
+}

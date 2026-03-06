@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Ysabeau_SC } from "next/font/google"; 
 import "./globals.css";
+import { Header } from "@/widgets/header";
+import { Footer } from "@/widgets/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,6 +12,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const ysabeau = Ysabeau_SC({
+  variable: "--font-ysabeau",
+  subsets: ["latin"],
+  weight: ["400","500","600","700"],
 });
 
 export const metadata: Metadata = {
@@ -24,10 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body 
+        className={`${geistSans.variable} ${geistMono.variable} ${ysabeau.variable} antialiased`}
+      > 
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
